@@ -5,7 +5,10 @@ __pycache__/
 
 # C extensions
 *.so
-
+config.yaml 
+# configuration file 
+captures/
+# evidance files
 # Distribution / packaging
 .Python
 build/
