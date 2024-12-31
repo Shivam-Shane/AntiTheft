@@ -59,7 +59,7 @@ def monitor_failed_logins():
                 logging.warning("Monitoring stopped by user.")
                 break
             except Exception as e:
-                logging.error(f"An error occurred: {e}")
+                pass
     finally:
             win32evtlog.CloseEventLog(handle)
             
