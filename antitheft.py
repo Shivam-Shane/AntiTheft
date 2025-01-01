@@ -17,7 +17,7 @@ def monitor_failed_logins():
 
     server = 'localhost'
     log_type = 'Security'
-    mail_sender = MailSender()
+    
     # Open the event log
     handle = win32evtlog.OpenEventLog(server, log_type)
     flags = win32evtlog.EVENTLOG_FORWARDS_READ | win32evtlog.EVENTLOG_SEQUENTIAL_READ
@@ -43,6 +43,7 @@ def monitor_failed_logins():
 
                                 # Trigger evidence capture and cleanup
                                 capture_evidence()
+                                mail_sender = MailSender()
                                 mail_sender.send_mail(event_time.strftime('%Y-%m-%d %H:%M:%S'))
                                 delete_old_files('captures')  # Delete old files after sending an email
 
